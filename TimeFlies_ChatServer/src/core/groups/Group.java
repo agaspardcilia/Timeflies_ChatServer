@@ -1,6 +1,6 @@
-package groups;
+package core.groups;
 
-import user.User;
+import core.user.User;
 
 /**
 * @author alexandre

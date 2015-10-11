@@ -1,7 +1,7 @@
-package messages;
+package core.messages;
 
-import channel.Channel;
-import user.User;
+import core.channel.Channel;
+import core.user.User;
 
 /**
 * @author alexandre

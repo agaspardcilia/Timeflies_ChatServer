@@ -1,4 +1,4 @@
-package groups;
+package core.groups;
 /**
 * @author alexandre
 * System.java

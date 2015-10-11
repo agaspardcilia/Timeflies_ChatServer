@@ -1,8 +1,8 @@
-package user;
+package core.user;
 
 import java.util.UUID;
 
-import groups.Group;
+import core.groups.Group;
 
 /**
 * @author alexandre

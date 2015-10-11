@@ -1,10 +1,10 @@
-package channel;
+package core.channel;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import groups.Group;
-import user.User;
+import core.groups.Group;
+import core.user.User;
 
 /**
 * @author alexandre

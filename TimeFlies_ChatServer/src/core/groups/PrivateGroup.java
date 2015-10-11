@@ -1,9 +1,9 @@
-package groups;
+package core.groups;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import user.User;
+import core.user.User;
 
 /**
 * @author alexandre

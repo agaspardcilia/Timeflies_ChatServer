@@ -1,4 +1,4 @@
-package groups;
+package core.groups;
 /**
 * @author alexandre
 * Admin.java
