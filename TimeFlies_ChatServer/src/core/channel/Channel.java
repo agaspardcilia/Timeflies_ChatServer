@@ -1,9 +1,11 @@
 package core.channel;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Set;
 
 import core.groups.Group;
+import core.messages.Message;
 import core.user.User;
 
 /**
@@ -20,6 +22,8 @@ public class Channel {
 	
 	private Group restriction;
 	
+	private LinkedList<Message> messagesQueue;
+	
 	public Channel(String name, Group restriction) {
 		this.name = name;
 		id++;
@@ -27,6 +31,7 @@ public class Channel {
 		
 		users = new HashSet<User>();
 		this.restriction = restriction;
+		messagesQueue = new LinkedList<Message>();
 	}
 	
 	public int getId() {
@@ -41,6 +46,22 @@ public class Channel {
 		users.remove(u);
 	}
 	
+	public boolean addMessage(Message m) {
+		if (restriction.can(m.getOwner())) {
+			synchronized (messagesQueue) {
+				messagesQueue.add(m);
+			}
+			return true;
+		} else 
+			return false;
+	}
+	
+	public Message popMessage() {
+		synchronized (messagesQueue) {
+			return messagesQueue.pop();
+		}
+	}
+	
 	public ConnectionStatus connectUser(User u) {
 		//Success
 		if(restriction.can(u)) {
@@ -52,8 +73,10 @@ public class Channel {
 			
 	}
 	
+	
 	private enum ConnectionStatus {
 		SUCCESS, FAIL;
 	}
 	
+		
 }
