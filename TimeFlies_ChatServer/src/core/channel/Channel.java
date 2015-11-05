@@ -7,6 +7,7 @@ import java.util.Set;
 import core.groups.Group;
 import core.messages.Message;
 import core.user.User;
+import network.sender.Sender;
 
 /**
 * @author alexandre
@@ -23,6 +24,8 @@ public class Channel {
 	private Group restriction;
 	
 	private LinkedList<Message> messagesQueue;
+	
+	private Sender sender;
 	
 	public Channel(String name, Group restriction) {
 		this.name = name;
@@ -74,7 +77,7 @@ public class Channel {
 	}
 	
 	
-	private enum ConnectionStatus {
+	public enum ConnectionStatus {
 		SUCCESS, FAIL;
 	}
 	
